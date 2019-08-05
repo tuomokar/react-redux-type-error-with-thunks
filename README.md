@@ -1,8 +1,8 @@
 This is a repository to reproduce an error related to [types of react-redux](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/react-redux).
 
 In the application, we have two components, `Counter1` and `Counter2`. They are fully identical
-in function and also in code except for the first one having `mapDispathToProps` as an object shorthand and the second one having it as a function. In the first one, using `connect` to the
-component, we get a typescript compiler error:
+in function and also in code except for the first one having `mapDispathToProps` as an object shorthand and the second one having it as a function. The `mapDispathToProps` binds a thunk
+action for the use of the counters. The second one works as expected, but in the first one, when using `connect` to the component, we get a typescript compiler error:
 
 ```
 Argument of type '(props: Props) => Element' is not assignable to parameter of type 'ComponentType<Matching<{ sum: number; clickCount: number; } & { count: (amount: number) => Promise<void>; }, Props>>'.
