@@ -1,27 +1,26 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import { AnyAction } from "redux";
+import React from "react"
+import "./App.css"
+import { Provider } from 'react-redux'
+
+import store from './store'
+import Counter1 from './Counter1'
+import Counter2 from './Counter2'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Provider store={store}>
+      <div className="App">
+        <div>
+          Two counters here with identical functionality (and
+          using same data) but the first one gets a typescript
+          compiler error.
+        </div>
+        <Counter1 />
+        <Counter2 />
+      </div>
+    </Provider>
+  )
 }
 
-export default App;
+export default App
+
